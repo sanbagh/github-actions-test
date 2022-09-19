@@ -1,5 +1,12 @@
 name: Action workflows
-on: [push]
+on: 
+  push:
+  pull_request:
+    types:
+      - assigned
+      - opened
+      - closed
+      - reopened
 jobs:
   run-github-action:
     runs-on: ubuntu-latest
