@@ -10,3 +10,15 @@ jobs:
         run: |
           node -v
           npm -v
+      - name: python shell
+        run: |
+          import platform
+          print(platform.processor())
+  run-windows-commands:
+    runs-on: windows-latest
+    needs: [run-shell-commands]
+    steps:
+      - name: directory powershell
+        run: Get-Location
+      - name: directory bash
+        run: pwd
