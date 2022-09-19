@@ -4,6 +4,22 @@ jobs:
   run-github-action:
     runs-on: ubuntu-latest
     steps:
+      - name: list files before action/checkout
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token}}"
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA
+      - name: checkout
+        uses: action/checkout@v1
+      - name: list files after action/checkout
+        run: |
+          pwd
+          ls -a
       - name: simple js action
         id: greet
         uses: actions/hello-world-javascript-action@v1
