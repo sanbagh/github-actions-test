@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: payload info
-        run: echo "${{github.event.client_payload}}"
+        run: echo "${{github.event.client_payload.env}}"
       - name: list files before action/checkout
         run: |
           pwd
