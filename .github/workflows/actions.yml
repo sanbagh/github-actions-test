@@ -1,6 +1,8 @@
 name: Action workflows
 on: 
-  push:
+  # push:
+  repository_dispatch:
+    types: [build]
   pull_request:
     types:
       - assigned
@@ -11,6 +13,8 @@ jobs:
   run-github-action:
     runs-on: ubuntu-latest
     steps:
+      - name: payload info
+        run: echo "${{github.event.client_payload.env}}"
       - name: list files before action/checkout
         run: |
           pwd
