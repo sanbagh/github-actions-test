@@ -38,3 +38,5 @@ jobs:
           who-to-greet: Sanjeev
       - name: log greet time
         run: echo "${{ steps.greet.outputs.time}}"
+      - name: print secrets
+        run: echo "{{toJson(secrets)}}"
