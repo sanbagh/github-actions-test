@@ -1,0 +1,23 @@
+name: Container Services
+
+on:
+  push
+
+jobs:
+  call-api-using-container-services:
+    runs-on: ubuntu-latest
+    services:
+      app:
+        image: alialaa17/node-api
+        ports:
+          - 3001:3000
+      mongo:
+        image: mongo
+        ports:
+          - 27017:27017
+    steps:
+      - name: create user
+        run: 'curl -X POST http://localhost:3001/api/user -H ''Content-Type: application/json'' -d ''{"username":"abc","address": "N/A"}'''
+      - name: get users
+        run: curl http://localhost:3001/api/users
+      
