@@ -1,7 +1,8 @@
 name: Container Services
 
 on:
-  push
+  # push
+  workflow_dispatch:
 
 jobs:
   call-api-using-container-services:
